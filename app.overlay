@@ -1,0 +1,17 @@
+/ {
+	chosen {
+		zephyr,canbus = &can1;
+	};
+};
+
+&i2c1 {
+	status = "disabled";
+};
+
+&can1 {
+	pinctrl-0 = <&can1_rx_pb8 &can1_tx_pa12>;
+	pinctrl-names = "default";
+
+	bitrate = <500000>;
+	status = "okay";
+};
