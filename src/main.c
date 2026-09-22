@@ -61,7 +61,7 @@ int main(void)
 		ret = k_msgq_get(
             &can_rx_msgq,
             &rx_frame,
-            K_MSEC(100)
+            K_FOREVER
         );
 
 		if (ret == 0) {
@@ -75,8 +75,6 @@ int main(void)
         } else {
             printk("RX timeout\n");
         }
-
-		k_sleep(K_SECONDS(1));
 	}
 
 	return 0;
